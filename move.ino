@@ -146,23 +146,39 @@ void loop(){
     }
     if (key == 'E'){ // control
       if (key == 'W'){
-      enable = 0;
-      moveForward();
+        enable = 0;
+        moveForward();
+        if (disForward <= 15){
+          enable = 1;
+          moveStop();
+        }
       }
     
       else if (key == 'S'){
         moveBackward();
+        if (disBackward <= 15){
+          enable = 1;
+          moveStop();
+        }
       }
       
       else if (key == 'A'){
         turnLeft();
+        if (disLeft <= 15){
+          enable = 1;
+          moveStop();
+        }
       }
   
       else if (key == 'D'){
         turnRight();
+        if (disRight <= 15){
+          enable = 1;
+          moveStop();
+        }
       }
   
-      else if (key == 'F'){
+      else if (key == 'X'){
         enable = 1;
         moveStop();
       }
